@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  app:
+    container_name: norient
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - ./env/development
+    volumes:
+      - "./src:/usr/app/src"
+    ports:
+      - 4000:4000
+      - 5858:5858
+    entrypoint:
+      - ./node_modules/.bin/nodemon
+      - -e
+      - ts
+      - --inspect=0.0.0.0:5858
+      - ./bin/server
+    links:
+      - orientdb
+
+  orientdb:
+    image: orientdb:2.2.22-spatial
+    container_name: orientdb
+    volumes:
+      - ".orientdb/databases:/orientdb/databases"
+      - ".orientdb/backup:/orientdb/backup"
+    ports:
+      - 2424:2424
+      - 2480:2480
+    env_file:
+      - ./env/development
