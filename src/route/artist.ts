@@ -2,10 +2,10 @@ import { methodNotAllowed, notImplemented } from 'boom';
 import * as compose from 'koa-compose';
 import * as Router from 'koa-router';
 
-import * as Ctrl from '../controller/user';
+import * as Ctrl from '../controller/artist';
 
 const router = new Router({
-  prefix: '/user',
+  prefix: '/artist',
 });
 
 router.get('/', Ctrl.get);

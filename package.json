@@ -11,11 +11,12 @@
   "author": "Mohammad Umair Khan <mohammad.umair.k@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@types/orientjs": "^2.1.6",
+    "@types/koa-bodyparser": "^3.0.23",
     "boom": "^4.2.0",
     "convict": "^1.5.0",
     "debug": "^2.3.3",
     "koa": "^2.0.0",
+    "koa-bodyparser": "^2.5.0",
     "koa-bunyan-logger": "^2.0.0-pre1",
     "koa-compose": "^3.1.0",
     "koa-json": "^2.0.2",
@@ -24,6 +25,7 @@
     "ts-node": "^3.0.4"
   },
   "devDependencies": {
+    "@types/orientjs": "^2.1.6",
     "@types/boom": "^4.3.2",
     "@types/bunyan": "^0.0.36",
     "@types/convict": "^0.6.33",

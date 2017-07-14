@@ -4,6 +4,7 @@ import * as debug  from 'debug';
 
 import * as jsonMiddleware from 'koa-json';
 import * as loggerMiddleware from 'koa-bunyan-logger';
+import * as bodyParserMiddleware from 'koa-bodyparser';
 
 
 import requestMiddleware from './middleware/request';
@@ -13,7 +14,7 @@ import routeMiddleware from './route';
 
 import conf from './conf';
 
-import { initialize } from './db/classes';
+import { initialize } from './db/class';
 
 const app = new Koa();
 const d = debug('kickstarter:root');
@@ -24,6 +25,7 @@ app.use(jsonMiddleware());
 app.use(loggerMiddleware());
 app.use(requestMiddleware());
 app.use(errorMiddleware());
+app.use(bodyParserMiddleware());
 
 // Registers routes via middleware
 app.use(routeMiddleware());
